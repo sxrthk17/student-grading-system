@@ -314,7 +314,7 @@ def main():
         print("|5.Update student")
         print("|6.Class Result")
         print("|7.Subject Topper")
-        print("7.Exit")
+        print("|8.Exit")
 
         choice = input("Whats do you want to do? ")
 
