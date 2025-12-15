@@ -18,21 +18,21 @@ def add_student():
 
     print("\nEnter marks out of 100")
     maths = input("Maths: ")
-    while not maths.isdigit():
+    while not maths.isdigit() or not (0 <= int(maths) <= 100):
         print("Invalid marks!")
         maths = input("Maths: ")
     oop = input("OOP: ")
-    while not oop.isdigit():
+    while not oop.isdigit() or not (0 <= int(oop) <= 100):
         print("Invalid marks")
         oop = input("OOP: ")
     dsa = input("DSA: ")
-    while not dsa.isdigit():
+    while not dsa.isdigit() or not (0 <= int(dsa) <= 100):
         print("Invalid marks")
         dsa = input("DSA: ")
 
     maths, oop, dsa = int(maths), int(oop), int(dsa)
     total = maths + oop + dsa
-    percentage = (total/300) * 100
+    percentage = round(total/3, 2)
     grade = get_grade(percentage)
 
     students[roll] = {
@@ -152,6 +152,7 @@ def search_student():
 def update_student():
     if not students:
         print("No student data to update!")
+        return
     roll = input("Which Roll no. to update?: ")
     while not roll.isdigit():
         print("Roll number must be digit")
@@ -175,7 +176,7 @@ def update_student():
         while not new_name.replace(" ", "").isalpha():
             print("Name should be in characters only!")
             new_name = input("Enter new name: ").strip()
-        students['name'] = new_name
+        student['name'] = new_name
 
     if choice == '2' or choice == '3':
         print("Enter new marks:")
@@ -245,6 +246,10 @@ def class_topper():
 
 
 def subject_topper(subject_name):
+    if not students:
+        print("No students data available!")
+        return
+
     if subject_name == "maths":
         max_math_marks = -1
         maths_topper = None
@@ -261,20 +266,54 @@ def subject_topper(subject_name):
         print(f"Math Marks: {max_math_marks}")
         print(f"Total = {maths_topper['total']}")
         print(f"Grade = {maths_topper['grade']}")
+
     elif subject_name == "oop":
-        pass
+        max_oop_marks = -1
+        oop_topper = None
+        oop_topper_roll = 0
+
+        for roll, student in students.items():
+            if student['marks']['oop'] > max_oop_marks:
+                max_oop_marks = student['marks']['oop']
+                oop_topper = student
+                oop_topper_roll = roll
+        print("OOP TOPPER")
+        print(f"{oop_topper_roll}")
+        print(f"Name: {oop_topper['name']}")
+        print(f"OOP Marks: {max_oop_marks}")
+        print(f"Total = {oop_topper['total']}")
+        # THhis thing can be made a function !
+        print(f"Grade = {oop_topper['grade']}")
+
+    elif subject_name == "dsa":
+        max_dsa_marks = -1
+        dsa_topper = None
+        dsa_topper_roll = 0
+
+        for roll, student in students.items():
+            if student['marks']['dsa'] > max_dsa_marks:
+                max_dsa_marks = student['marks']['dsa']
+                dsa_topper = student
+                dsa_topper_roll = roll
+            print(" TOPPER")
+            print(f"{dsa_topper_roll}")
+            print(f"Name: {dsa_topper['name']}")
+            print(f"DSA Marks: {max_dsa_marks}")
+            print(f"Total = {dsa_topper['total']}")
+            print(f"Grade = {dsa_topper['grade']}")
 
 
 def main():
     print("Student Grading System")
     is_running = True
     while is_running:
-        print("1.Add Student")
-        print("2.Delete student")
-        print("3.Show Student")
-        print("4.Search student")
-        print("5.Update student")
-        print("6.Class Result")
+        print("|1.Add Student")
+        print("|2.Delete student")
+        print("|3.Show Student")
+        print("|4.Search student")
+        print("|5.Update student")
+        print("|6.Class Result")
+        print("|7.Subject Topper")
         print("7.Exit")
 
         choice = input("Whats do you want to do? ")
@@ -291,7 +330,14 @@ def main():
             update_student()
         elif choice == "6":
             class_topper()
-        elif choice == '7':
+        elif choice == "7":
+            subject_name = input("Enter the subject: (Maths/OOP/DSA)").lower()
+            while subject_name not in ['maths', 'oop', 'dsa']:
+                print("Enter a valid subject: ")
+                subject_name = input(
+                    "Enter the subject: (Maths/OOP/DSA)").lower()
+            subject_topper(subject_name)
+        elif choice == '8':
             break
         else:
             print("Please enter a valid choice! ")
