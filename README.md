@@ -91,6 +91,15 @@ Implementing real-world logic
 
 Building a complete CLI application
 
+## Future Improvements
+
+Class result summary (grade distribution & averages)
+
+File handling (save/load data using JSON or CSV)
+
+Refactoring repeated print logic
+
+Object-Oriented version of the system
 
 ## Author
 
