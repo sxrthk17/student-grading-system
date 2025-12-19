@@ -20,9 +20,7 @@ Delete Student
 
 Update Student
 
-Update name
-
-Update marks
+Update name and marks
 
 Automatic recalculation after updates
 
@@ -32,35 +30,29 @@ Search Functionality
 
 Search student by:
 
-Roll Number
+Roll Number or Name (case-insensitive)
 
-Name (case-insensitive)
-
-📊 Academic Analytics
-
-Class Topper
-
-Displays student with highest total marks
+Academic Analytics
+Class Topper:
+-->Displays student with highest total marks
 
 Subject Topper
-
-Finds topper in:
-Maths
-OOP
-DSA
-
+--->Finds topper in:
+        Maths
+        OOP
+        DSA 
 
 Grading System
 
 Grades are assigned automatically based on percentage:
 
 Percentage	Grade
-≥ 95	    A++
-90 – 94	    A
-80 – 89	    B
-70 – 79	    C
-60 – 69	    D
-< 60	    F
+≥ 95	    A++,
+90 – 94	    A,
+80 – 89	    B,
+70 – 79	    C,
+60 – 69	    D,
+< 60	    F.
 
 ## Concepts Used:
 
@@ -103,4 +95,4 @@ Building a complete CLI application
 ## Author
 
 Sarthak Mule
-Beginner Python Developer | Learning through projects 🚀
+Beginner Python Developer | Learning through projects |
