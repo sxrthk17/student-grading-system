@@ -76,7 +76,7 @@ def delete_student():
     roll = int(roll)
     if roll in students:
         removed_student = students.pop(roll)
-        print(f"Removed Student : {roll} {removed_student['name']}")
+        print(f"Removed Student : {roll} - {removed_student['name']}")
     else:
         print("Roll number not found!")
 
@@ -115,6 +115,8 @@ def search_student():
         roll = int(roll)
         if roll in students:
             data = students[roll]  # imp
+            print("-----------------------")
+            print("STUDENT FOUND!")
             print('-----------------------')
             print(f"Roll Number: {roll}")
             print(f"Name:{data['name']}")
@@ -134,6 +136,8 @@ def search_student():
         for roll, data in students.items():
             if data['name'].lower() == name:
                 found = True
+                print("-----------------------")
+                print("STUDENT FOUND!")
                 print('-----------------------')
                 print(f"Roll Number: {roll}")
                 print(f"Name:{data['name']}")
@@ -236,13 +240,14 @@ def class_topper():
             max_total = student['total']
             topper = student
             toppers_roll = roll
-
+    print("-----------------------")
     print("Overall Topper:")
     print(f"{toppers_roll}")
     print(f"Name: {topper['name']}")
     print(f"Total Marks: {topper['total']}")
     print(f"Percentage: {topper['percentage']:.2f}%")
     print(f"Grade: {topper['grade']}")
+    print("-----------------------")
 
 
 def subject_topper(subject_name):
@@ -260,12 +265,14 @@ def subject_topper(subject_name):
                 max_math_marks = student['marks']['maths']
                 maths_topper = student
                 maths_topper_roll = roll
+        print("-----------------------")
         print("Maths Topper")
         print(f"{maths_topper_roll}")
         print(f"Name: {maths_topper['name']}")
         print(f"Math Marks: {max_math_marks}")
         print(f"Total = {maths_topper['total']}")
         print(f"Grade = {maths_topper['grade']}")
+        print("-----------------------")
 
     elif subject_name == "oop":
         max_oop_marks = -1
@@ -277,6 +284,7 @@ def subject_topper(subject_name):
                 max_oop_marks = student['marks']['oop']
                 oop_topper = student
                 oop_topper_roll = roll
+        print("-----------------------")
         print("OOP TOPPER")
         print(f"{oop_topper_roll}")
         print(f"Name: {oop_topper['name']}")
@@ -284,6 +292,7 @@ def subject_topper(subject_name):
         print(f"Total = {oop_topper['total']}")
         # THhis thing can be made a function !
         print(f"Grade = {oop_topper['grade']}")
+        print("-----------------------")
 
     elif subject_name == "dsa":
         max_dsa_marks = -1
@@ -295,12 +304,16 @@ def subject_topper(subject_name):
                 max_dsa_marks = student['marks']['dsa']
                 dsa_topper = student
                 dsa_topper_roll = roll
-            print(" TOPPER")
-            print(f"{dsa_topper_roll}")
-            print(f"Name: {dsa_topper['name']}")
-            print(f"DSA Marks: {max_dsa_marks}")
-            print(f"Total = {dsa_topper['total']}")
-            print(f"Grade = {dsa_topper['grade']}")
+        print("-----------------------")
+        print(" TOPPER")
+        print(f"{dsa_topper_roll}")
+        print(f"Name: {dsa_topper['name']}")
+        print(f"DSA Marks: {max_dsa_marks}")
+        print(f"Total = {dsa_topper['total']}")
+        print(f"Grade = {dsa_topper['grade']}")
+        print("-----------------------")
+    else:
+        print("Enter a valid subject!")
 
 
 def main():
