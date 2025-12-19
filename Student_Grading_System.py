@@ -104,9 +104,11 @@ def search_student():
     if not students:
         print("No students data available")
         return
+
     search = input("Search by Roll No. or Name?: ").lower()
     while search not in ['roll', 'name']:
         search = input("Search by Roll No. or Name?: ").lower()
+
     if search == 'roll':
         roll = input("Enter roll number to search: ")
         while not roll.isdigit():
@@ -130,6 +132,7 @@ def search_student():
             print('-----------------------')
         else:
             print("Roll number not found")
+
     elif search == "name":
         name = input("Enter name to search: ").strip().lower()
         found = False
@@ -157,6 +160,7 @@ def update_student():
     if not students:
         print("No student data to update!")
         return
+
     roll = input("Which Roll no. to update?: ")
     while not roll.isdigit():
         print("Roll number must be digit")
@@ -199,7 +203,7 @@ def update_student():
         while not dsa.isdigit() or not (0 <= int(dsa) <= 100):
             print("Marks should be between 0 and 100!")
             dsa = input("DSA: ").strip()
-
+        # -----------------------------------
         student['marks']['maths'] = int(maths)
         student['marks']['oop'] = int(oop)
         student['marks']['dsa'] = int(dsa)
@@ -231,6 +235,7 @@ def class_topper():
     if not students:
         print("No students data available!")
         return
+
     max_total = -1
     topper = None
     toppers_roll = 0
@@ -305,7 +310,7 @@ def subject_topper(subject_name):
                 dsa_topper = student
                 dsa_topper_roll = roll
         print("-----------------------")
-        print(" TOPPER")
+        print("DSA TOPPER")
         print(f"{dsa_topper_roll}")
         print(f"Name: {dsa_topper['name']}")
         print(f"DSA Marks: {max_dsa_marks}")
@@ -351,9 +356,12 @@ def main():
                     "Enter the subject: (Maths/OOP/DSA)").lower()
             subject_topper(subject_name)
         elif choice == '8':
+            print("Exiting....")
             break
         else:
             print("Please enter a valid choice! ")
+
+    print("Thanks for using the CLI-Based Program!")
 
 
 if __name__ == "__main__":
