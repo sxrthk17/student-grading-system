@@ -1,4 +1,4 @@
-# Student Grading System (CLI – Python)
+ ## Student Grading System (CLI – Python)
 
 A command-line based Student Grading System built using Python.
 This project allows users to manage student records, calculate grades, search and update data, and analyze class performance through toppers.
